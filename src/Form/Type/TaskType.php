@@ -17,7 +17,9 @@ class TaskType extends AbstractType
         $builder
             ->add('first_name', TextType::class)
             ->add('last_name', TextType::class)
-            ->add('save', SubmitType::class)
+            ->add('date_of_birth', TextType::class)
+            ->add('email_address', TextType::class)
+            ->add('submit', SubmitType::class)
         ;
     }
 

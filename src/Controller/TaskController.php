@@ -33,7 +33,10 @@ class TaskController extends AbstractController
             $employee = new Employee();
             $employee->setFirstName($data['first_name']);
             $employee->setLastName($data['last_name']);
-            $employee->setDob($data['date_of_birth']);
+            $dob = $data['date_of_birth'];
+            $dobStringValue = date('d-m-Y', $dob);
+            $dobReconverted = \DateTime::createFromFormat('d-m-Y', $dobStringValue);
+            $employee->setDob($dobReconverted);
             $employee->setEmail($data['email_address']);
             $entityManager->persist($employee);
             $entityManager->flush();

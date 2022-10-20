@@ -3,5 +3,5 @@ controllers:
     type: attribute
 
 form:
-    path: /form
+    path: 'task/new.html.twig'
     controller: App\Controller\TaskController::new

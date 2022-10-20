@@ -2,6 +2,7 @@
 // src/Controller/TaskController.php
 namespace App\Controller;
 
+use App\Entity\FormEmployee;
 use App\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -16,7 +17,7 @@ class TaskController extends AbstractController
     public function new(): Response
     {
         // creates a task object and initializes some data for this example
-        $task = new Task();
+        $task = new FormEmployee();
         $task->setTask('Write a blog post');
         $task->setDueDate(new \DateTime('tomorrow'));
 

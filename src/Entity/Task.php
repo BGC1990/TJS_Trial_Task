@@ -1,14 +1,14 @@
 <?php // src/Entity/Task.php
 namespace App\Entity;
 
-class Task
+class FormEmployee
 {
-    protected $task;
-    protected $dueDate;
+    protected $first_name;
+    protected $last_name;
 
-    public function getTask(): string
+    public function getFirst_Name(): string
     {
-        return $this->task;
+        return $this->first_name;
     }
 
     public function setTask(string $task): void

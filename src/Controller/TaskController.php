@@ -17,11 +17,11 @@ class TaskController extends AbstractController
     public function new(): Response
     {
         // creates a task object and initializes some data for this example
-        $task = new FormEmployee();
-        $task->setTask('Write a blog post');
-        $task->setDueDate(new \DateTime('tomorrow'));
+        $FormEmployee = new FormEmployee();
+        $FormEmployee->setFirst_Name('First Name');
+        $FormEmployee->setLast_Name('Last Name');
 
-        $form = $this->createForm(TaskType::class, $task);
+        $form = $this->createForm(TaskType::class, $FormEmployee);
 
         return $this->renderForm('task/new.html.twig', [
             'form' => $form,

@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class TaskController extends AbstractController
 {
-    public function new(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
+    public function new(Request $request, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
         // creates a task object and initializes some data for this example
@@ -31,9 +31,6 @@ class TaskController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $employee = new Employee();
-            $errors = $validator->validate($employee);
-            if (!$errors)
-            {
             $employee->setFirstName($data['first_name']);
             $employee->setLastName($data['last_name']);
             $dob = $data['date_of_birth'];
@@ -42,7 +39,6 @@ class TaskController extends AbstractController
             $employee->setEmail($data['email_address']);
             $entityManager->persist($employee);
             $entityManager->flush();
-            }
         }
 
         return $this->renderForm('task/new.html.twig', [

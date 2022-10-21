@@ -3,20 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Employee;
-use App\Entity\FormEmployee;
-use App\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Form\Type\TaskType;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\EmployeeRepository;
 
 class TaskController extends AbstractController
 {
+    #[Route('task/new.html.twig')]
     public function new(Request $request, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
@@ -49,6 +47,20 @@ class TaskController extends AbstractController
         return $this->renderForm('task/new.html.twig', [
             'form' => $form,
         ]);
+    }
+
+    #[Route('task/new.html.twig')]
+    public function show(EntityManagerInterface $em): Response
+    {
+        $repository = $em->getRepository(Employee::class);
+        $employees = $repository->findall();
+
+        // if (!$databaseEmployees) {
+        //     throw $this->createNotFoundException(
+        //         'No employees found '
+        //     );
+        // }
+        return $this->render('task/new.html.twig', ['employees' => $employees]);
     }
 }
 

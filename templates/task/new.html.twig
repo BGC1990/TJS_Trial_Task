@@ -1,8 +1,26 @@
 {# templates/task/new.html.twig #}
+{% extends "base.html.twig" %}
+{% block body %}
 {{ form(form) }}
+
+{% for employee in employees %}
+            <div>
+
+                <p>
+                    {{ employees.first_name }}
+                </p>
+
+                <p>
+                    {{ employees.last_name }}
+                </p>
+            </div>
+            
+{% endfor %}
+
 
 {% for message in app.flashes('notice') %}
     <div class="flash-notice">
         {{ message }}
     </div>
 {% endfor %}
+{% endblock %}

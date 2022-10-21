@@ -33,12 +33,14 @@ class TaskController extends AbstractController
             $employee = new Employee();
             $employee->setFirstName($data['first_name']);
             $employee->setLastName($data['last_name']);
-            $dob = $data['date_of_birth'];
-            $dobConverted = \DateTime::createFromFormat('dmY', $dob);
-            $employee->setDob($dobConverted);
+            $employee->setDob($data['date_of_birth']);
             $employee->setEmail($data['email_address']);
             $entityManager->persist($employee);
             $entityManager->flush();
+            $this->addFlash(
+                'notice',
+                'valid'
+            );
         }
 
         return $this->renderForm('task/new.html.twig', [

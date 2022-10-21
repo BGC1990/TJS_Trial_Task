@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class TaskType extends AbstractType
 {
@@ -18,7 +19,7 @@ class TaskType extends AbstractType
             ->add('first_name', TextType::class)
             ->add('last_name', TextType::class)
             ->add('date_of_birth', TextType::class)
-            ->add('email_address', TextType::class)
+            ->add('email_address', EmailType::class)
             ->add('submit', SubmitType::class)
         ;
     }

@@ -37,9 +37,12 @@ class TaskController extends AbstractController
             $employee->setEmail($data['email_address']);
             $entityManager->persist($employee);
             $entityManager->flush();
+        }
+        else
+        {
             $this->addFlash(
                 'notice',
-                'valid'
+                'Invalid submission, details not saved'
             );
         }
 

@@ -1,0 +1,17 @@
+# config/validator/validation.yaml
+App\Entity\Employee:
+    properties:
+        first_name:
+            - NotBlank: ~
+            - Type: string
+        last_name:
+            - NotBlank: ~
+            - Type: string
+        dob:
+            - NotBlank: ~
+            - Type: string
+        email:
+            - Type: Symfony\Component\Mime\Address
+            - NotBlank: ~
+            - Email:
+                message: The email "{{ value }}" is not a valid email.

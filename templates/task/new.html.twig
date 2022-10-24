@@ -3,17 +3,7 @@
 {% block body %}
 {{ form(form) }}
 
-{% for employee in employees %}
-            <div>
-                <p>
-                    {{ employees.first_name }}
-                </p>
-                <p>
-                    {{ employees.last_name }}
-                </p>
-            </div>     
-{% endfor %}
-
+{{ render (controller('App\\Controller\\TaskController::show')) }}
 
 {% for message in app.flashes('notice') %}
     <div class="flash-notice">

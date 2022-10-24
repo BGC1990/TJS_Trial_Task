@@ -14,7 +14,7 @@ use App\Repository\EmployeeRepository;
 
 class TaskController extends AbstractController
 {
-    #[Route('task/new.html.twig')]
+    #[Route('/task')]
     public function new(Request $request, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
@@ -47,9 +47,10 @@ class TaskController extends AbstractController
         return $this->renderForm('task/new.html.twig', [
             'form' => $form,
         ]);
+
     }
 
-    #[Route('task/new.html.twig')]
+    #[Route('/task')]
     public function show(EntityManagerInterface $em): Response
     {
         $repository = $em->getRepository(Employee::class);
@@ -60,7 +61,7 @@ class TaskController extends AbstractController
         //         'No employees found '
         //     );
         // }
-        return $this->render('task/new.html.twig', ['employees' => $employees]);
+        return $this->render('task/list.twig', ['employees' => $employees]);
     }
 }
 

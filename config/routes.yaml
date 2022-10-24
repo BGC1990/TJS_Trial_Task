@@ -2,6 +2,6 @@ controllers:
     resource: ../src/Controller/
     type: attribute
 
-form:
+get_form:
     path: 'task/new.html.twig'
     controller: App\Controller\TaskController::new

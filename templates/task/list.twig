@@ -1,10 +1,11 @@
-{% for employee in employees %}
-            <div>
+<table>
+{% for employee in employees %} 
+                <tbody>  
+                <tr>    
                 <p>
-                    {{ employee.firstName }}
+                    <td>{{ employee.firstName }} {{ employee.lastName }} {{ employee.Dob | date('d/m/Y') }} {{ employee.email }}</td>
                 </p>
-                <p>
-                    {{ employee.LastName }}
-                </p>
-            </div>     
+                </tr>
+                </tbody>
 {% endfor %}
+</table>

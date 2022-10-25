@@ -19,10 +19,10 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('first_name', TextType::class, ['label' => 'First Name', 'label_attr' => ['class' => 'p']])
-            ->add('last_name', TextType::class)
+            ->add('last_name', TextType::class, ['label' => 'Last Name', 'label_attr' => ['class' => 'p']])
             ->add('date_of_birth', DateType::class, [
-                'widget' => 'text', 'format' => 'dd/MM/yyyy'])
-            ->add('email_address', EmailType::class)
+                'widget' => 'single_text', 'html5' => false, 'label_attr' => ['class' => 'p'], 'format' => 'dd/MM/yyyy'])
+            ->add('email_address', EmailType::class, ['label' => 'Email', 'label_attr' => ['class' => 'p']])
             ->add('submit', SubmitType::class)
         ;
     }

@@ -1,10 +1,12 @@
 {# templates/task/new.html.twig #}
 {% extends "base.html.twig" %}
 {% block body %}
-<link href="{{ asset('assets\styles\app.css') }}" rel="stylesheet"/>
+<link href="{{ asset('public\build\app.css') }}" rel="stylesheet"/>
 
+<div class="light-blue_background">
 <h1>Employees</h1>
 {{ form(form) }}
+</div>
 
 {{ render (controller('App\\Controller\\TaskController::show')) }}
 

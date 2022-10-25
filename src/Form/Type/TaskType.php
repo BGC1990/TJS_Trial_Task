@@ -21,9 +21,9 @@ class TaskType extends AbstractType
             ->add('first_name', TextType::class, ['label' => 'First Name', 'label_attr' => ['class' => 'p']])
             ->add('last_name', TextType::class, ['label' => 'Last Name', 'label_attr' => ['class' => 'p']])
             ->add('date_of_birth', DateType::class, [
-                'widget' => 'single_text', 'html5' => false, 'label_attr' => ['class' => 'p'], 'format' => 'dd/MM/yyyy'])
+                'widget' => 'single_text', 'html5' => false, 'attr' => ['placeholder' => 'DD/MM/YYYY'], 'label_attr' => ['class' => 'p'], 'format' => 'dd/MM/yyyy'])
             ->add('email_address', EmailType::class, ['label' => 'Email', 'label_attr' => ['class' => 'p']])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, ['attr' => ['class' => 'submitButton'], 'label' => 'SUBMIT'])
         ;
     }
 

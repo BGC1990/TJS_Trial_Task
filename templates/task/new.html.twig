@@ -3,12 +3,15 @@
 {% block body %}
 <link href="{{ asset('public\build\app.css') }}" rel="stylesheet"/>
 
-<div class="light-blue_background">
+<div class="form">
 <h1>Employees</h1>
-{{ form(form) }}
+{{ form_start(form) }}
+{# {{ form_label(form.first_name, { 'label_attr': {'class': 'h1'} }) }} #}
+{{ form_end(form) }}
 </div>
-
+<div class="table">
 {{ render (controller('App\\Controller\\TaskController::show')) }}
+</div>
 
 {% for message in app.flashes('notice') %}
     <div class="flash-notice">

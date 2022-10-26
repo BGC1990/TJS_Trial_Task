@@ -36,7 +36,7 @@ class TaskController extends AbstractController
             $entityManager->persist($employee);
             $entityManager->flush();
         }
-        else
+        if ($form->isSubmitted() && $form->isValid() == false)
         {
             $this->addFlash(
                 'notice',
